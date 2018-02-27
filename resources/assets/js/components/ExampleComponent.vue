@@ -7,6 +7,8 @@
 
                     <div class="card-body">
                         I'm an example component.
+
+                        <input type="text" v-model="message">
                     </div>
                 </div>
             </div>
@@ -18,6 +20,9 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        data: {
+            message: 'Message'
         }
     }
 </script>
