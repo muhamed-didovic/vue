@@ -31,6 +31,8 @@
 // - Vue components can have template strings
 // - Vue components can have data functions (and not data objects)
 
+PROPS:
+One way to pass data from a parent to a child is called props.
 
 v-for with v-if
 When they exist on the same node, v-for has a higher priority than v-if. That means the v-if will be run on each iteration of the loop separately. This can be useful when you want to render nodes for only some items, like below:

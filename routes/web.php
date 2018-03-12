@@ -22,3 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/modal', 'HomeController@modal');
 Route::get('/todo', 'HomeController@todo');
 Route::get('/tabs', 'HomeController@tabs');
+Route::get('/coupon', 'HomeController@coupon');
+Route::get('/slots', 'HomeController@slots');
+Route::get('/inline_templates', 'HomeController@inline_templates');

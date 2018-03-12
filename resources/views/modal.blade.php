@@ -24,7 +24,8 @@
                         <div class="col">
                             <button class="btn btn-primary" @click="showNewPostModal = true">New Post</button>
                             <button class="btn btn-primary" @click="showNewCommentModal = true">Add Comment</button>
-                            <new-post-modal :show="showNewPostModal" @close="showNewPostModal = false"></new-post-modal>
+                            <new-post-modal :show="showNewPostModal"
+                                            @close="showNewPostModal = false"></new-post-modal>
                             <new-comment-modal :show="showNewCommentModal"
                                                @close="showNewCommentModal = false"></new-comment-modal>
                         </div>

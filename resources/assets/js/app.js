@@ -64,18 +64,37 @@ Vue.component('NewCommentModal', require('./components/NewCommentModalTemplate')
 Vue.component('alert', require('./components/Alert'));
 Vue.component('todo', require('./components/Todo'));
 
+//TABS
 Vue.component('Tabs', require('./components/Tabs'));
 Vue.component('Tab', require('./components/Tab'));
 
+//COUPON
+Vue.component('Coupon', require('./components/Coupon'));
+
+//Named Slot
+Vue.component('NamedSlot', require('./components/NamedSlot'));
+
+//Progress view for inline template(s)
+Vue.component('ProgressView', require('./components/ProgressView'));
+
+//EVENTING SYSTEM
+//his.$root.$emit or this.$root.$on, that is the same thing of instanciate Vue as an Event.
+window.EventBus = new Vue();
+
+//main instance
 const app = new Vue({
     el: '#app',
     data: {
         //message: '--this is a message--',
         newName: '',
         names: ['1', 'test2', 'test3'],
-        title: 'this is a title!',
+
         color: 'btn btn-primary',
         apply: false,
+
+        title: 'this is a title!',
+        body: '',
+
         tasks: [
             {'desc': '1111', completed: true},
             {'desc': '222', completed: false},
@@ -87,9 +106,20 @@ const app = new Vue({
         //modal related code
         showNewPostModal: false,
         showNewCommentModal: false,
-        showModal: false
+        showNamedSlot: false,
+        showModal: false,
+
+        //coupon related
+        couponIsApplied: false
     },
     methods: {
+        // savePost: function () {
+        //     // Some save logic goes here...
+        //     this.close();
+        // },
+        // close: function () {
+        //     this.$emit('close');
+        // },
         addName() {
             console.log('button', button);
             //this.disabledState = ! this.disabledState;
@@ -115,6 +145,18 @@ const app = new Vue({
             alert('Task deleted');
         },
 
+        //1st way, without Event object
+        onCouponApplied() {
+            this.couponIsApplied = true;
+            alert('Global notification, coupon was applied');
+        }
+    },
+    created() {
+        //2nd way over Event object
+        EventBus.$on('applied', () => {
+            alert('Global notification, coupon was applied over Event object');
+            this.couponIsApplied = true;
+        })
     },
     // Computed properties are properties that need to be processed or computed for some reason
     computed: {

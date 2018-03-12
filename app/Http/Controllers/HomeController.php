@@ -40,4 +40,19 @@ class HomeController extends Controller
     {
         return view('tabs');
     }
+    
+    public function coupon()
+    {
+        return view('coupon');
+    }
+    
+    public function slots()
+    {
+        return view('slots');
+    }
+    
+    public function inline_templates()
+    {
+        return view('inline_templates');
+    }
 }
