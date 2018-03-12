@@ -1,0 +1,64 @@
+//Notes:
+// LESSON 3:
+// v-on === @ basically those those symbols are the same
+// - Binding arrays with [v-for]
+// - Using [v-text] for binding data to elements instead of [v-bind] like I expected
+// - Manipulating Vue objects directly works without $scope.$apply (Reactivity)
+// - The mounted() function which is a bit like $(document).ready() for Vue elements/instances
+
+// LESSON 4:
+// - The "methods" object for storing functions
+// - How Vue proxies all objects and functions correctly
+// - Do NOT to use ES6 function syntax for vue functions because it does not have a "this" context
+// - Using the @ notation for vue attributes
+
+// element with ID is available in DOM, The DOM does that when you assign an ID to an element. A reference is created for it in the root window object. Still pretty neat!
+
+// - Introduction to Vue components
+// - Vue components can have template strings
+// - Vue components can have data functions (and not data objects)
+
+// Just a quick note: You should avoid using v-if with v-for on the same element. the element that contains the v-for should be wrapped with another element that uses v-if. If this isn't practical, you can use the v-if within the <template> element.
+// <ul>
+// <template v-if="items.length">
+//     <li v-for="item in items">{{ item.text }}</li>
+// </template>
+// </ul>
+
+// LESSON 7
+// What I learned:
+// - Introduction to Vue components
+// - Vue components can have template strings
+// - Vue components can have data functions (and not data objects)
+
+
+v-for with v-if
+When they exist on the same node, v-for has a higher priority than v-if. That means the v-if will be run on each iteration of the loop separately. This can be useful when you want to render nodes for only some items, like below:
+
+<li v-for="todo in todos" v-if="!todo.isComplete">
+  {{ todo }}
+</li>
+The above only renders the todos that are not complete.
+
+If instead, your intent is to conditionally skip execution of the loop, you can place the v-if on a wrapper element (or <template>). For example:
+
+<ul v-if="todos.length">
+  <li v-for="todo in todos">
+    {{ todo }}
+  </li>
+</ul>
+<p v-else>No todos left!</p>
+------------------------------------------
+A method is a 'dumb' function. It will run every time the code runs regardless.
+The advantages of computed properties are that they allow you to do quick
+calculations on your data properties and they know if they need to run.
+If the computed property doesn't change, Vue will know and not waste resources
+recomputing it, it will simply return the cached result.
+-------
+When you need to compute something then you use computed properties
+-------
+- Any thing that associated with an event should be a method
+- Any thing that relates with refactoring should be a computed property
+Computed properties cache results and return the cached version when there is no need to recompute it (ie it hasn't changed)
+-------
+when we use data() method to be returned from instance, we use method in component because it is not bound to any Vue instance

@@ -25,4 +25,19 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    
+    public function modal()
+    {
+        return view('modal');
+    }
+    
+    public function todo()
+    {
+        return view('todo');
+    }
+    
+    public function tabs()
+    {
+        return view('tabs');
+    }
 }

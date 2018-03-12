@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/modal', 'HomeController@modal');
+Route::get('/todo', 'HomeController@todo');
+Route::get('/tabs', 'HomeController@tabs');
