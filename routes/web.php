@@ -25,3 +25,7 @@ Route::get('/tabs', 'HomeController@tabs');
 Route::get('/coupon', 'HomeController@coupon');
 Route::get('/slots', 'HomeController@slots');
 Route::get('/inline_templates', 'HomeController@inline_templates');
+
+Route::get('/forms', 'HomeController@forms');
+Route::post('/forms', 'HomeController@forms');
+

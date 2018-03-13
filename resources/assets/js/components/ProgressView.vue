@@ -7,6 +7,7 @@
             }
         }
     }
+
 </script>
 
 <style scoped>

@@ -55,4 +55,9 @@ class HomeController extends Controller
     {
         return view('inline_templates');
     }
+    
+    public function forms()
+    {
+        return view('forms');
+    }
 }
