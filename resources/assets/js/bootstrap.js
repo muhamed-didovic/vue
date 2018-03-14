@@ -21,8 +21,20 @@ try {
  */
 
 window.axios = require('axios');
+window.axios.defaults.baseURL = 'api';
+// window.axios.defaults.headers.common = {
+//     'X-CSRF-TOKEN': window.Laravel.csrfToken,
+//     'Authorization': window.Laravel.api_token,
+//     'X-Requested-With': 'XMLHttpRequest'
+// };
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+axios.defaults.headers.common = {
+    'X-CSRF-TOKEN': Laravel.csrfToken,
+    'X-Requested-With': 'XMLHttpRequest',
+    'Authorization': 'Bearer ' + Laravel.apiToken,
+};
+console.log('Token', Laravel.apiToken, 'Laravel', Laravel );
+//window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that

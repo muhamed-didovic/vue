@@ -60,4 +60,9 @@ class HomeController extends Controller
     {
         return view('forms');
     }
+    
+    public function schemaForms()
+    {
+        return view('schema_forms');
+    }
 }

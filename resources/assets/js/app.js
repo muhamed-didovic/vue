@@ -4,6 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -81,10 +82,57 @@ Vue.component('ProgressView', require('./components/ProgressView'));
 //his.$root.$emit or this.$root.$on, that is the same thing of instanciate Vue as an Event.
 window.EventBus = new Vue();
 
+//import Form class for easier maintenance of form and its elements
+import {Form} from "./classes/Form";
+
+//Schema forms
+Vue.component('schema-forms', require('./components/SchemaForms'));
+
 //main instance
 const app = new Vue({
     el: '#app',
     data: {
+        form: new Form({
+            name: '',
+            description: ''
+        }),
+        projects: [],
+
+        //Schema forms
+        formSchema: {
+            fields: [
+                {
+                    type: 'text-input',
+                    name: 'name',
+                    label: 'Name',
+                    placeholder: 'Enter project name'
+                },
+                {
+                    type: 'text-input',
+                    name: 'description',
+                    label: 'Descriptione',
+                    placeholder: 'Enter project description'
+                },
+                {
+                    type: 'checkbox-input',
+                    name: 'is_admin',
+                    label: 'Administrator',
+                    placeholder: 'Sure, why not'
+                }
+            ]
+        },
+        formData: {
+            name: {
+                value: 'John'
+            },
+            description: {
+                value: 'Doe'
+            },
+            is_admin: {
+                value: true
+            }
+        },
+
         //message: '--this is a message--',
         newName: '',
         names: ['1', 'test2', 'test3'],
@@ -113,13 +161,26 @@ const app = new Vue({
         couponIsApplied: false
     },
     methods: {
-        // savePost: function () {
-        //     // Some save logic goes here...
-        //     this.close();
-        // },
-        // close: function () {
-        //     this.$emit('close');
-        // },
+        onSubmit() {
+            this.form.post('/projects')
+                .then(response => {
+                    console.log('rrrrr', response);
+                    console.log('before', this.projects);
+                    this.projects = response.projects;
+                    console.log('after', this.projects);
+                })
+                .catch(err => console.log('Error from methods:', err));
+        },
+        deleteProject(project){
+            this.form.delete('/projects/' + project.id)
+                .then(response => {
+                    console.log('DELETE RESPONSE:', response);
+                    console.log('before', this.projects);
+                    this.projects = response.projects;
+                    console.log('after', this.projects);
+                })
+                .catch(err => console.log('Error from methods:', err));
+        },
         addName() {
             console.log('button', button);
             //this.disabledState = ! this.disabledState;
@@ -156,7 +217,19 @@ const app = new Vue({
         EventBus.$on('applied', () => {
             alert('Global notification, coupon was applied over Event object');
             this.couponIsApplied = true;
-        })
+        });
+
+        EventBus.$on('projects', (projects) => {
+            alert('Event bus projects');
+            this.projects = projects;
+        });
+
+        axios.get('/projects')
+            .then(response => {
+                console.log('on load:', response.data);
+                this.projects = response.data.projects;
+            })
+            .catch(err => console.log(err));
     },
     // Computed properties are properties that need to be processed or computed for some reason
     computed: {

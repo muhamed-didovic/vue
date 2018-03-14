@@ -29,3 +29,7 @@ Route::get('/inline_templates', 'HomeController@inline_templates');
 Route::get('/forms', 'HomeController@forms');
 Route::post('/forms', 'HomeController@forms');
 
+Route::get('projects', 'ProjectsController@create');
+//Route::post('projects', 'ProjectsController@store');
+
+Route::get('schema_forms', 'HomeController@schemaForms');

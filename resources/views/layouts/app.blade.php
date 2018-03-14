@@ -10,6 +10,13 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <script>
+        window.Laravel = {!! json_encode([
+                'csrfToken' => csrf_token(),
+                'apiToken' => (auth()->user()->api_token ?? ''),
+            ]) !!};
+    </script>
+
     <!-- Styles -->
     @yield('css')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -66,27 +73,27 @@
 
     <main class="py-4">
         {{--<div class="container">--}}
-            {{--<div class="row justify-content-center">--}}
-                {{--<div class="col-md-8">--}}
-                    {{--<div class="card">--}}
-                        {{--<div class="card-header">Testing</div>--}}
+        {{--<div class="row justify-content-center">--}}
+        {{--<div class="col-md-8">--}}
+        {{--<div class="card">--}}
+        {{--<div class="card-header">Testing</div>--}}
 
-                        {{--<div class="card-body">--}}
+        {{--<div class="card-body">--}}
 
 
 
-                            {{--<input type="text" v-model="message">--}}
-                            {{--This is @{{message}} for you!!!--}}
+        {{--<input type="text" v-model="message">--}}
+        {{--This is @{{message}} for you!!!--}}
 
-                            {{--<task>Test 1</task>--}}
-                            {{--<task>Test 2</task>--}}
-                            {{--<task>Test 3</task>--}}
+        {{--<task>Test 1</task>--}}
+        {{--<task>Test 2</task>--}}
+        {{--<task>Test 3</task>--}}
 
-                            {{--Home--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
+        {{--Home--}}
+        {{--</div>--}}
+        {{--</div>--}}
+        {{--</div>--}}
+        {{--</div>--}}
         {{--</div>--}}
         @yield('content')
     </main>
