@@ -88,6 +88,10 @@ import {Form} from "./classes/Form";
 //Schema forms
 Vue.component('schema-forms', require('./components/SchemaForms'));
 
+//Sharing state
+Vue.component('shared-one', require('./components/shared/SharedOne'));
+Vue.component('shared-two', require('./components/shared/SharedTwo'));
+
 //main instance
 const app = new Vue({
     el: '#app',

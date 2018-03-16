@@ -65,4 +65,9 @@ class HomeController extends Controller
     {
         return view('schema_forms');
     }
+    
+    public function shared()
+    {
+        return view('shared');
+    }
 }

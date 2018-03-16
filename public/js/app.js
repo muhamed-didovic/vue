@@ -31397,6 +31397,10 @@ window.EventBus = new Vue();
 //Schema forms
 Vue.component('schema-forms', __webpack_require__(97));
 
+//Sharing state
+Vue.component('shared-one', __webpack_require__(102));
+Vue.component('shared-two', __webpack_require__(105));
+
 //main instance
 var app = new Vue({
     el: '#app',
@@ -50156,6 +50160,352 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-0ab9ffa7", module.exports)
   }
 }
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(103)
+/* template */
+var __vue_template__ = __webpack_require__(104)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/shared/SharedOne.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4349a5e4", Component.options)
+  } else {
+    hotAPI.reload("data-v-4349a5e4", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 103 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__state_shared__ = __webpack_require__(108);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        console.log('1', __WEBPACK_IMPORTED_MODULE_0__state_shared__["a" /* default */]);
+        return {
+            private: {
+                count: 0
+            },
+            shared: __WEBPACK_IMPORTED_MODULE_0__state_shared__["a" /* default */].state,
+            inc: __WEBPACK_IMPORTED_MODULE_0__state_shared__["a" /* default */].inc,
+            o: __WEBPACK_IMPORTED_MODULE_0__state_shared__["a" /* default */].o
+        };
+    }
+});
+
+/***/ }),
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "box" }, [
+    _c("h6", [_vm._v("Private count: " + _vm._s(_vm.private.count))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Shared count: " + _vm._s(_vm.shared.count))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Increment simple shared: " + _vm._s(_vm.inc))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Increment " + _vm._s(_vm.o.inc))]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "button",
+        on: {
+          click: function($event) {
+            _vm.private.count++
+          }
+        }
+      },
+      [_vm._v("Private Increment")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "button",
+        on: {
+          click: function($event) {
+            _vm.shared.count++
+          }
+        }
+      },
+      [_vm._v("Shared Increment")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "button",
+        on: {
+          click: function($event) {
+            _vm.inc++
+          }
+        }
+      },
+      [_vm._v("Increment simple shared")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "button",
+        on: {
+          click: function($event) {
+            _vm.o.inc++
+          }
+        }
+      },
+      [_vm._v("Increment")]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4349a5e4", module.exports)
+  }
+}
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(106)
+/* template */
+var __vue_template__ = __webpack_require__(107)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/shared/SharedTwo.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-127a4418", Component.options)
+  } else {
+    hotAPI.reload("data-v-127a4418", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 106 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__state_shared__ = __webpack_require__(108);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        console.log('2', __WEBPACK_IMPORTED_MODULE_0__state_shared__["a" /* default */]);
+        return {
+            private: {
+                count: 0
+            },
+            shared: __WEBPACK_IMPORTED_MODULE_0__state_shared__["a" /* default */].state,
+            inc: __WEBPACK_IMPORTED_MODULE_0__state_shared__["a" /* default */].inc,
+            o: __WEBPACK_IMPORTED_MODULE_0__state_shared__["a" /* default */].o
+        };
+    }
+});
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "box" }, [
+    _c("h6", [_vm._v("Private count: " + _vm._s(_vm.private.count))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Shared count: " + _vm._s(_vm.shared.count))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Increment simple shared: " + _vm._s(_vm.inc))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Increment " + _vm._s(_vm.o.inc))]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "button",
+        on: {
+          click: function($event) {
+            _vm.private.count++
+          }
+        }
+      },
+      [_vm._v("Private Increment")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "button",
+        on: {
+          click: function($event) {
+            _vm.shared.count++
+          }
+        }
+      },
+      [_vm._v("Shared Increment")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "button",
+        on: {
+          click: function($event) {
+            _vm.inc++
+          }
+        }
+      },
+      [_vm._v("Increment simple shared")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "button",
+        on: {
+          click: function($event) {
+            _vm.o.inc++
+          }
+        }
+      },
+      [_vm._v("Increment")]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-127a4418", module.exports)
+  }
+}
+
+/***/ }),
+/* 108 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var shared = {
+    state: {
+        count: 0
+    },
+    inc: 0,
+    o: {
+        inc: 0
+    }
+
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (shared);
 
 /***/ })
 /******/ ]);

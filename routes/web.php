@@ -33,3 +33,5 @@ Route::get('projects', 'ProjectsController@create');
 //Route::post('projects', 'ProjectsController@store');
 
 Route::get('schema_forms', 'HomeController@schemaForms');
+
+Route::get('/shared', 'HomeController@shared');
