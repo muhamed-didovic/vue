@@ -6,9 +6,7 @@
 
 
 require('./bootstrap');
-
-window.Vue = require('vue');
-
+import router from './routes';
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -16,22 +14,6 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
-//     {
-//         template: require('./components/ExampleComponent.vue'),
-//         // declare the props
-//         //props: ['message'],
-//         // data: function () {
-//         //     return {
-//         //         message: 'hello'
-//         //     }
-//         // }
-//         // data() {
-//         //     return {
-//         //         message: 'hello'
-//         //     }
-//         // }
-//     }
-// );
 
 Vue.component('task-list', {
     template: `
@@ -53,17 +35,16 @@ Vue.component('task-list', {
 });
 Vue.component('task', {
     template: `<li><slot></slot></li>`
-
 });
 
-Vue.component('Modal', require('./components/Modal.vue'));
-// The Vue NewPostModal component
-Vue.component('NewPostModal', require('./components/NewPostModalTemplate'));
-
-Vue.component('NewCommentModal', require('./components/NewCommentModalTemplate'));
-
-Vue.component('alert', require('./components/Alert'));
-Vue.component('todo', require('./components/Todo'));
+// Vue.component('Modal', require('./components/Modal'));
+// // The Vue NewPostModal component
+// Vue.component('NewPostModal', require('./components/NewPostModalTemplate'));
+// // The Vue NewCommentModal component
+// Vue.component('NewCommentModal', require('./components/NewCommentModalTemplate'));
+//
+// Vue.component('alert', require('./components/Alert'));
+//Vue.component('todo', require('./views/Todo'));
 
 //TABS
 Vue.component('Tabs', require('./components/Tabs'));
@@ -92,10 +73,41 @@ Vue.component('schema-forms', require('./components/SchemaForms'));
 Vue.component('shared-one', require('./components/shared/SharedOne'));
 Vue.component('shared-two', require('./components/shared/SharedTwo'));
 
+//Custom new way input
+Vue.component('custom-input', require('./components/shared/CustomInput'));
+//Custom old way input
+Vue.component('custom-old-way-input', require('./components/shared/CustomOldWayInput'));
+//Some variations for custom input
+Vue.component('coupon', require('./components/shared/Coupon'));
+Vue.component('coupon2', require('./components/shared/Coupon2'));
+Vue.component('child', {
+    template: '<input type="text">'
+});
+
+Vue.component('child2', {
+    template: '<span>{{value}}</span>'
+});
+
+Vue.component('child3', {
+    props: ['value'],
+    template: '<span>{{value}}</span>'
+});
+
+//Scoped
+Vue.component('scoped-slot', require('./components/Scoped'));
+
 //main instance
 const app = new Vue({
     el: '#app',
+    //important rule to use routes
+    router,
     data: {
+        //custom input
+        coupon: 'FREEBIE', // Maybe from DB or querystring.
+        coupon2: 'FREEBIE2',
+        tempvar: 'TEST',
+
+        //custom form
         form: new Form({
             name: '',
             description: ''
@@ -155,11 +167,11 @@ const app = new Vue({
             {'desc': '55555', completed: true},
         ],
 
-        //modal related code
-        showNewPostModal: false,
-        showNewCommentModal: false,
-        showNamedSlot: false,
-        showModal: false,
+        // //modal related code
+        // showNewPostModal: false,
+        // showNewCommentModal: false,
+        // showNamedSlot: false,
+        // showModal: false,
 
         //coupon related
         couponIsApplied: false

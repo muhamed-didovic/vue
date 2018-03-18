@@ -13,10 +13,13 @@
         "axios": "^0.18",
         "bootstrap": "^4.0.0",
         "cross-env": "^5.1",
-        "jquery": "^3.2",
-        "laravel-mix": "^2.0",
-        "lodash": "^4.17.4",
-        "popper.js": "^1.12",
-        "vue": "^2.5.7"
+        "jquery": "^3.3",
+        "laravel-mix": "^2.1",
+        "lodash": "^4.17.5",
+        "popper.js": "^1.14",
+        "vue": "^2.5.16"
+    },
+    "dependencies": {
+        "vue-router": "^3.0.1"
     }
 }

@@ -73,5 +73,5 @@
 </script>
 
 <style scoped>
-
+    @import 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css';
 </style>

@@ -70,4 +70,14 @@ class HomeController extends Controller
     {
         return view('shared');
     }
+    
+    public function custom()
+    {
+        return view('custom');
+    }
+    
+    public function scoped()
+    {
+        return view('scoped');
+    }
 }

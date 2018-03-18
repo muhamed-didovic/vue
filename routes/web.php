@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
@@ -35,3 +35,5 @@ Route::get('projects', 'ProjectsController@create');
 Route::get('schema_forms', 'HomeController@schemaForms');
 
 Route::get('/shared', 'HomeController@shared');
+Route::get('/custom', 'HomeController@custom');
+Route::get('/scoped', 'HomeController@scoped');

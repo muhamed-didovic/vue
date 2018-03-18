@@ -3,14 +3,8 @@
         <article class="message is-primary">
             <div class="message-body">
                 <!--OLD way-->
-                <!--<input type="text" class="input is-primary" :value="code" @input="updateCode($event.target.value)" ref="input">-->
+                <input type="text" class="input is-primary" :value="code" @input="updateCode($event.target.value)" ref="input">
 
-                <!--NEW way-->
-                <input type="text"
-                       class="input is-primary"
-                       :value="value"
-                       @input="updateCode($event.target.value)"
-                       ref="input">
             </div>
         </article>
     </div>
@@ -19,15 +13,13 @@
 <script>
 
     export default {
-        //new way
-        props: ['value'],
 
         //in order to work for old way
-        // props: ['code'],
-        // model: {
-        //     prop: 'code',
-        //     event: 'input'
-        // },
+        props: ['code'],
+        model: {
+            prop: 'code',
+            event: 'input'
+        },
 
         data(){
             return {

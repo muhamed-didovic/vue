@@ -32,6 +32,9 @@
                 body: ''
             };
         },
+        components: {
+          modal: require('../components/Modal')
+        },
         methods: {
             close: function () {
                 this.$emit('close');

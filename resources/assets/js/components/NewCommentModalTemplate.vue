@@ -22,6 +22,9 @@
     export default {
         name: "NewCommentModalTemplate",
         props: ['show'],
+        components: {
+            modal: require('../components/Modal')
+        },
         data: function () {
             return {
                 comment: ''

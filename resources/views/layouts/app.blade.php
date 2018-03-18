@@ -36,7 +36,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
+                    {{--<li><a class="nav-link" href="#/todo">Todo</a></li>--}}
+                    {{--<li><a class="nav-link" href="#/modal">Modal</a></li>--}}
+                    <router-link tag="li" to="/" exact>
+                        <a class="nav-link" >Home</a>
+                    </router-link>
 
+                    <router-link tag="li" to="/todo">
+                        <a class="nav-link" >Todo</a>
+                    </router-link>
+
+                    <router-link tag="li" to="/modal">
+                        <a class="nav-link" >Modal</a>
+                    </router-link>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -95,7 +107,25 @@
         {{--</div>--}}
         {{--</div>--}}
         {{--</div>--}}
-        @yield('content')
+
+        {{--@yield('content')--}}
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">Components</div>
+
+                        <div class="card-body">
+
+                            <router-view></router-view>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </main>
 </div>
 

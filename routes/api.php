@@ -17,8 +17,13 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
+
 Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/projects', 'ProjectsController@projects');
     Route::post('/projects', 'ProjectsController@store');
     Route::delete('/projects/{project}', 'ProjectsController@destory');
 });
+
+Route::get('/{vue_capture?}', function () {
+    return view('home');
+})->where('vue_capture', '[\/\w\.-]*');
