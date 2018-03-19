@@ -49,6 +49,46 @@
                     <router-link tag="li" to="/modal">
                         <a class="nav-link" >Modal</a>
                     </router-link>
+
+                    <router-link tag="li" to="/example">
+                        <a class="nav-link" >Example</a>
+                    </router-link>
+
+                    <router-link tag="li" to="/scoped-slot">
+                        <a class="nav-link" >Scoped Slot</a>
+                    </router-link>
+
+                    <router-link tag="li" to="/custom-input">
+                        <a class="nav-link" >Custom Input</a>
+                    </router-link>
+
+                    <router-link tag="li" to="/shared">
+                        <a class="nav-link" >Shared</a>
+                    </router-link>
+
+                    <router-link tag="li" to="/forms">
+                        <a class="nav-link" >Forms</a>
+                    </router-link>
+
+                    <router-link tag="li" to="/tasks">
+                        <a class="nav-link" >Tasks</a>
+                    </router-link>
+
+                    <router-link tag="li" to="/tabs">
+                        <a class="nav-link" >Tabs</a>
+                    </router-link>
+
+                    <router-link tag="li" to="/coupon">
+                        <a class="nav-link" >Coupon</a>
+                    </router-link>
+
+                    <router-link tag="li" to="/named">
+                        <a class="nav-link" >Named Slot</a>
+                    </router-link>
+
+                    <router-link tag="li" to="/progress">
+                        <a class="nav-link" >Progress-Inline Temp.</a>
+                    </router-link>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
