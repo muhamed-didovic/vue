@@ -13,9 +13,6 @@ import router from './routes';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-//Progress view for inline template(s)
-Vue.component('ProgressView', require('./components/ProgressView'));
-
 //EVENTING SYSTEM
 //this.$root.$emit or this.$root.$on, that is the same thing of instantiate Vue as an Event.
 window.EventBus = new Vue();
@@ -26,6 +23,6 @@ const app = new Vue({
     //important rule to use routes
     router,
     mounted() {
-        console.log('mauuu');
+        console.log('main mounted');
     }
 });

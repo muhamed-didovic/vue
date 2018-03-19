@@ -36,15 +36,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                    {{--<li><a class="nav-link" href="#/todo">Todo</a></li>--}}
-                    {{--<li><a class="nav-link" href="#/modal">Modal</a></li>--}}
-                    <router-link tag="li" to="/" exact>
-                        <a class="nav-link" >Home</a>
-                    </router-link>
-
-                    <router-link tag="li" to="/todo">
-                        <a class="nav-link" >Todo</a>
-                    </router-link>
+                    {{--<router-link tag="li" to="/" exact>--}}
+                        {{--<a class="nav-link" >Home</a>--}}
+                    {{--</router-link>--}}
 
                     <router-link tag="li" to="/modal">
                         <a class="nav-link" >Modal</a>
@@ -87,7 +81,11 @@
                     </router-link>
 
                     <router-link tag="li" to="/progress">
-                        <a class="nav-link" >Progress-Inline Temp.</a>
+                        <a class="nav-link" >Progress-Inline</a>
+                    </router-link>
+
+                    <router-link tag="li" to="/todo">
+                        <a class="nav-link" >Todo</a>
                     </router-link>
                 </ul>
 

@@ -72,6 +72,7 @@
     }
 </script>
 
+<!--<style src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" scoped></style>-->
 <style scoped>
-    @import 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css';
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css');
 </style>

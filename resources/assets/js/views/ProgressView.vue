@@ -11,6 +11,7 @@
     export default {
         name: "ProgressView",
         // components: {
+            //Progress view for inline template(s)
         //     ProgressView: require('../components/ProgressView')
         // },
         data() {
