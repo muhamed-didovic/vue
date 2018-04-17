@@ -1,6 +1,6 @@
-import {Errors} from "./Errors";
+import Errors from "./Errors";
 
-export class Form {
+export default class Form {
     /**
      * Create a new Form instance.
      *

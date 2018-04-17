@@ -36,9 +36,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                    {{--<router-link tag="li" to="/" exact>--}}
-                        {{--<a class="nav-link" >Home</a>--}}
-                    {{--</router-link>--}}
+                    <router-link tag="li" to="/stream">
+                        <a class="nav-link" >Stream</a>
+                    </router-link>
 
                     <router-link tag="li" to="/modal">
                         <a class="nav-link" >Modal</a>
@@ -156,7 +156,9 @@
 
                         <div class="card-body">
 
-                            <router-view></router-view>
+                            <transition name="fade" mode="out-in">
+                                <router-view class="view"></router-view>
+                            </transition>
                         </div>
                     </div>
                 </div>

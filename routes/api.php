@@ -22,6 +22,9 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/projects', 'ProjectsController@projects');
     Route::post('/projects', 'ProjectsController@store');
     Route::delete('/projects/{project}', 'ProjectsController@destory');
+    
+    Route::get('/statuses', 'StatusesController@index');
+    Route::post('/statuses', 'StatusesController@store');
 });
 
 Route::get('/{vue_capture?}', function () {

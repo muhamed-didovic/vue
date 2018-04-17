@@ -3,10 +3,65 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+Vue.config.debug = true;
 
+window.axios = require('axios');
+window.axios.defaults.baseURL = 'api';
+axios.defaults.headers.common = {
+    'X-CSRF-TOKEN': Laravel.csrfToken,
+    'X-Requested-With': 'XMLHttpRequest',
+    'Authorization': 'Bearer ' + Laravel.apiToken,
+};
+console.log('Token', Laravel.apiToken, 'Laravel', Laravel );
 
-require('./bootstrap');
-import router from './routes';
+import Errors from './classes/Errors';
+import Form from './classes/Form';
+
+window.Form = Form;
+window.Errors = Errors;
+let token = document.head.querySelector('meta[name="csrf-token"]');
+
+if (token) {
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+} else {
+    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+}
+
+import routes from './routes';
+
+const router = new VueRouter({
+    mode: 'history',
+    root: 'app',
+    routes
+});
+// const router = new VueRouter({
+//     routes,
+//     linkActiveClass: 'is-active',
+//     mode: 'history'
+// })
+//router.mode = 'html5';
+
+// router.beforeEach(function (to, from, next) {
+//     // if (to.meta.adminOnly && ! Suggestive.isAdmin) {
+//     //     console.error('Going to Admin Only');
+//     //     return next(false);
+//     // }
+//     //
+//     // if (to.path == '/' && Suggestive.isAdmin) {
+//     //     return next('/admin-dashboard');
+//     // }
+//
+//     // Catch vue-router bug
+//     if (to.path == '') {
+//         return next('/');
+//     }
+//
+//     return next();
+// });
+Vue.use(VueRouter);
+console.log('sassss');
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -18,11 +73,9 @@ import router from './routes';
 window.EventBus = new Vue();
 
 //main instance
-const app = new Vue({
-    el: '#app',
-    //important rule to use routes
+var App = new Vue({
+
     router,
-    mounted() {
-        console.log('main mounted');
-    }
-});
+
+}).$mount("#app");
+

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-export class Errors {
+export default class Errors {
     /**
      * Create a new Errors instance.
      */

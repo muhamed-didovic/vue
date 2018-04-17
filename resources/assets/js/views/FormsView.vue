@@ -20,7 +20,7 @@
 
 <script>
     //import Form class for easier maintenance of form and its elements
-    import {Form} from "../classes/Form";
+    import Form from "../classes/Form";
     export default {
         name: "FormsView",
         components: {

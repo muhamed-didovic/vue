@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get(
+    '/',
+    function () {
+        return view('home');
+    }
+);
 
 Auth::routes();
 
@@ -37,3 +40,18 @@ Route::get('schema_forms', 'HomeController@schemaForms');
 Route::get('/shared', 'HomeController@shared');
 Route::get('/custom', 'HomeController@custom');
 Route::get('/scoped', 'HomeController@scoped');
+
+//Route::get('{path}', function() {
+//    return view('layouts.app');
+//})->where('path', '.*');
+
+Route::any(
+    '{all}',
+    function () {
+        return view('layouts.app');
+    }
+)->where(['all' => '.*']);
+
+//Route::get('/{vue?}', function () {
+//    return view('index');
+//})->where('vue', '[\/\w\.-]*');
